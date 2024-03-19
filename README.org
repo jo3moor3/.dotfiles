@@ -5,7 +5,7 @@ All of my takes are an amalgamation of the following fine people:
 + Henrik Lissner (creator of Doom Emacs!) -[[https://github.com/hlissner/dotfiles][GitHub - hlissner/dotfiles: And I say hey, what's going on?]]
 + LibrePheonix -[[https://github.com/librephoenix/nixos-config][GitHub - librephoenix/nixos-config: Nix noob trying to build his system]]
 + Vimjoyer -[[https://www.youtube.com/@vimjoyer][Vimjoyer - YouTube]]
-  -----
+-----
 | Shell    | zsh                  |
 | DM       | lightdm+mini-greeter |
 | WM       | Qtile                |
