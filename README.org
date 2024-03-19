@@ -1,0 +1,50 @@
+#+title: NixOS config
+*Disclaimer*
+I'm new to Nix, and not super informed.
+All of my takes are an amalgamation of the following fine people:
++ Henrik Lissner (creator of Doom Emacs!) -[[https://github.com/hlissner/dotfiles][GitHub - hlissner/dotfiles: And I say hey, what's going on?]]
++ LibrePheonix -[[https://github.com/librephoenix/nixos-config][GitHub - librephoenix/nixos-config: Nix noob trying to build his system]]
++ Vimjoyer -[[https://www.youtube.com/@vimjoyer][Vimjoyer - YouTube]]
+** Summary
+Nix isn't for everyone. I'm no authority on the matter but Here's my opinion anyways:
+*The Difficulties*
+Setting up seemingly simple things can seem daunting.
+Technical problems with NixOS can be niche and hard to search up.
+You have to learn a new programming language (It's really just json though)
+
+*The Control*
+Your system is reproducible, dynamic, fluid. Declarative.
+The setup may be a long journey, but once you get there your progress is tangible, legible, and always accessible.
+You can always go back. Every system state is saved when you update and rebuild.
+You can use both stable and unstable packages (with flakes). Get the benefits of Arch without it's worries.
+
+More documentation under construction.....
+* Profile
+** Hardware config
+** System config
+** User config
+* Hey
+A script I stole from Henrik and scrapped it to my own config.
+It's pretty simple, but it's something NixOS really needs. Simpler command access.
+* System
+** Default
+** Disko
+[[https://github.com/nix-community/disko][GitHub - nix-community/disko: Declarative disk partitioning and formatting using nix]]
+** Impermanence
+[[https://github.com/nix-community/impermanence][GitHub - nix-community/impermanence: Modules to help you handle persistence]]
+[[https://nixos.wiki/wiki/Impermanence][Impermanence - NixOS Wiki]]
+[[https://github.com/vimjoyer/impermanent-setup][GitHub - vimjoyer/impermanent-setup]]
+[[https://www.youtube.com/watch?v=YPKwkWtK7l0][Perfect NixOS | Impermanence Setup - YouTube]]
+** WM
+** VM
+** audio
+** sleep
+* Apps
+** Emacs
+**  Rofi
+** Dunst
+** Picom
+** Theme
+** Ranger
+** Redshift
+** Shell
