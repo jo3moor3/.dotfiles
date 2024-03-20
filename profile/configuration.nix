@@ -1,7 +1,3 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 { config, lib, pkgs, pkgs-stable, ... }:
 
 {
@@ -51,20 +47,17 @@
   nixpkgs.config.allowUnfree = true;
   ### Core packages ###
   environment.systemPackages = with pkgs; [
-    gparted # partition manager
     flameshot # screenshot utility
     vlc # video player
     mpv # video player
-    vim # terminal editor
     discord # modern gamer skype
     wget
     ruby # for hey script
     gnumake # build tool
-    sops # for managing secrets
-    age # encryption tool
     #cmake
     #libtool
     ## DRIVES ##
+    gparted # partition manager
     gvfs # automounting drives
     udisks # drive manager backend
     udiskie # drive manager frontend
