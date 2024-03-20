@@ -5,7 +5,7 @@
 { config, lib, pkgs, pkgs-stable, ... }:
 
 {
-  imports = [ ../system/default.nix ];
+  imports = [ ../system/default.nix ../secrets/secrets.nix ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
