@@ -4,7 +4,7 @@
   home.packages = with pkgs; [
     #editors
     emacs29
-    vim
+    vimHugeX
     #neovim
     #dependencies
     sbcl

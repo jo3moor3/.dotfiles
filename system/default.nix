@@ -7,6 +7,7 @@
     ./nvidia.nix
     ./audio.nix
     ./sleep.nix
+    #./secrets.nix
     ./font.nix
     ./wm.nix
     ./vm.nix

@@ -60,6 +60,8 @@
     wget
     ruby # for hey script
     gnumake # build tool
+    sops # for managing secrets
+    age # encryption tool
     #cmake
     #libtool
     ## DRIVES ##
