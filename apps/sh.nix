@@ -32,7 +32,8 @@ in {
     direnv
     nix-direnv
     # Aesthetic
-    neofetch
+    #neofetch
+    fastfetch
     oh-my-zsh
     bat # htop
     eza
@@ -78,7 +79,7 @@ in {
         theme = "agnoster";
       };
       initExtra = ''
-        neofetch
+        fastfetch
         export PATH=$PATH:$HOME/.config/emacs/bin
         export PATH=$PATH:$HOME/.local/share
         export PATH=$PATH:$HOME/.dotfiles/bin
