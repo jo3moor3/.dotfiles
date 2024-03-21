@@ -2,19 +2,23 @@
   description = "op flake";
 
   inputs = {
-    # The quintessential packages
+    ### The quintessential packages ###
     nixpkgs.url = "nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "nixpkgs/nixos-23.11";
-    ## The better stow. Configure all
+
+    ### The better stow. Configure all ###
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    # Allow persistance for when I nuke my computer on reboot
+
+    ### Allow persistance for when I nuke my computer on reboot ###
     # impermanence.url = "github:nix-community/impermanence";
     # impermanence.inputs.nixpkgs.follows = "nixpkgs";
-    ## Fixing dynamicallly linked executables, because nixos can't natively.
+
+    ## Fixing dynamicallly linked executables, because nixos can't natively. ###
     nix-ld.url = "github:Mic92/nix-ld";
     nix-ld.inputs.nixpkgs.follows = "nixpkgs";
-    ## sops-nix for secret management
+
+    ### secrets management ###
     sops-nix.url = "github:Mic92/sops-nix";
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
   };

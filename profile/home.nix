@@ -46,5 +46,5 @@
   ];
 
   ### global enivironment variables ###
-  home.sessionVariables = { EDITOR = "vim"; };
+  home.sessionVariables = { EDITOR = "emacsclient -nw -a 'emacs'"; };
 }
