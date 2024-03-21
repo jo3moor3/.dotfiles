@@ -2,26 +2,23 @@
 
 {
   home.packages = with pkgs; [
-    #editors
     emacs29
-    vimHugeX
-    #neovim
-    #dependencies
+    ### CORE ###
     sbcl
-    ripgrep
-    coreutils
-    fd
     clang
-    hunspell
-    hunspellDicts.en_US
-    hunspellDicts.fr-any
-    maim
     xorg.xwininfo
     xdotool
     xclip
-    shfmt
-    gdtoolkit
-    libxml2
+    ### SPELLCHECKER ###
+    hunspell
+    hunspellDicts.en_US
+    hunspellDicts.fr-any
+    ### ORG DOWNLOAD ###
+    maim
+    ### LANGUAGE SUPPORT ###
+    shfmt # shell
+    gdtoolkit # gdscript
+    libxml2 # xml
     #Python
     poetry
     black
@@ -36,10 +33,8 @@
     nil
     nixfmt
   ];
-  services = {
-    emacs = {
-      enable = true;
-      package = pkgs.emacs29;
-    };
+  services.emacs = {
+    enable = true;
+    package = pkgs.emacs29;
   };
 }

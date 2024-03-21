@@ -1,23 +1,20 @@
 { config, pkgs, pkgs-stable, ... }: {
   imports = [ ../apps/default.nix ];
 
-  ### home-manager configuration ###
+  ### HOME-MANAGER ###
   programs.home-manager.enable = true;
   home.username = "jomor";
   home.homeDirectory = "/home/jomor";
   home.stateVersion = "23.11";
 
-  ### keybindings ###
+  ### KEYBINDINGS ###
   home.keyboard.options = [ "caps:super" ];
 
-  ### important services ###
-  xsession.enable = true;
-  services = {
-    udiskie.enable = true;
-    gpg-agent.enable = true;
-  };
+  ### IMPORTANT SERVICES ###
+  xsession.enable = true; # x11 environment
+  services = { udiskie.enable = true; }; # automount daemon
 
-  ### git setup ###
+  ### GIT ###
   programs.git = {
     enable = true;
     userName = "jomor";
@@ -25,7 +22,7 @@
     extraConfig = { init.defaultBranch = "main"; };
   };
 
-  ### Virtualization config ###
+  ### VIRTUALIZATION ###
   dconf.settings = {
     "org/virt-manager/connections" = {
       autoconnect = [ "qemu:///system" ];
@@ -33,23 +30,19 @@
     };
   };
 
-  ### Packages ###
+  ### USER PACKAGES ###
   nixpkgs.config.allowUnfree = true;
   home.packages = with pkgs; [
-    firefox
-    discord
-    glslviewer
-    libsForQt5.filelight
-    libsForQt5.ark
-    gwenview
-    #libsForQt5.kdenlive
-    ntfs3g
-    util-linux
-    blender # the unstoppable foss force in 3D graphics
-
-    #houdini # Procedural 3D powerhouse, plays well with linux
-    #gimp
-    inkscape
+    firefox # slightly better than other mainstream alternatives
+    discord # modern gamer skype
+    flameshot # screenshot tool
+    glslviewer # shader editor/viewer
+    gwenview # image viewer
+    #gimp # image editor
+    inkscape # vector editor
+    vlc # video player
+    mpv # video player
+    #libsForQt5.kdenlive # video editor
   ];
 
   ### global enivironment variables ###

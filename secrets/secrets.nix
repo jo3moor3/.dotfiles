@@ -11,4 +11,11 @@
     hashedPasswordFile = config.sops.secrets.password_jomor.path;
   };
   environment.systemPackages = with pkgs; [ sops age ];
+
+  services = { openssh.enable = true; };
+
+  programs.gnupg.agent = {
+    enable = true;
+    enableSSHSupport = true;
+  };
 }

@@ -41,6 +41,7 @@ in {
     bind
     unzip
     bottom
+    ripgrep
     fd
     bc
     shellcheck
