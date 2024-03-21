@@ -13,6 +13,7 @@
     files = [ "/etc/machine-id" ];
     users.jomor = {
       directories = [
+        ### HOME ###
         "Downloads"
         "Music"
         "Pictures"
@@ -23,9 +24,11 @@
         "code"
         "3D"
         ".zsh_hist_dir"
+        ".codeium"
         ".dotfiles"
         ".mozilla"
         ".password-store"
+        ### CONFIG ###
         ".config/autostart"
         ".config/blender"
         ".config/gtk-3.0"
@@ -59,6 +62,7 @@
           directory = ".local/share/keyrings";
           mode = "0700";
         }
+        ### LOCAL SHARE ###
         #".local/share/direnv"
         ".local/share/fonts"
         ".local/share/ranger"

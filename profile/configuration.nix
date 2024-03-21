@@ -63,6 +63,8 @@
     udiskie # drive manager frontend
   ];
 
+  hardware.spacenavd = true;
+
   # Fixing compatibility with DLEs
   programs.nix-ld = {
     enable = true;
