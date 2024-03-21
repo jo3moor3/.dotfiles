@@ -2,16 +2,13 @@
 
 {
   home.packages = with pkgs; [
+    papirus-icon-theme
     ## rofi-file-browser-extended ##
     xfce.exo
     ## rofi-calc ##
     libqalculate
     ## rofi-pass ##
-    pinentry
     pinentry-rofi
-    pass
-    gnupg
-    papirus-icon-theme
   ];
   programs.rofi = {
     enable = true;
