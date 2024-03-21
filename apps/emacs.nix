@@ -37,4 +37,6 @@
     enable = true;
     package = pkgs.emacs29;
   };
+  ### TTY EMACS AS DEFUALT EDITOR ###
+  home.sessionVariables = { EDITOR = "emacsclient -nw -a 'emacs'"; };
 }
