@@ -16,28 +16,27 @@ let
 in {
 
   home.packages = with pkgs; [
-    ## Terminal ##
+    ## TERMINAL ##
     kitty
-    ## shell ##
+    ## SHELL ##
     zsh
-    # hey
-    cached-nix-shell
-    haskellPackages.shellwords
-    haskellPackages.optparse-generic
+    shellcheck
+    ### HEY ###
     hello
-    # convenience
+    cached-nix-shell
+    ### CONVENIENCE ###
     nix-zsh-completions
     zoxide
     fzf
     direnv
     nix-direnv
-    # Aesthetic
-    #neofetch
-    fastfetch
-    oh-my-zsh
-    bat # htop
-    eza
-    #function
+    ### AESTHETIC ###
+    fastfetch # neofetch in C. Just better.
+    #macchina # neofetch in rust. Needs to cook a lil more.
+    oh-my-zsh # feeatureful zsh
+    bat # prettier htop
+    eza # prettier ls
+    ### FUNCTION ###
     git
     bind
     unzip
@@ -45,12 +44,11 @@ in {
     ripgrep
     fd
     bc
-    shellcheck
     file
   ];
 
   programs = {
-    ### Terminal ###
+    ### TERMINAL ###
     kitty = {
       enable = true;
       font.name = "SauceCodePro Nerd Font";
@@ -60,7 +58,7 @@ in {
         confirm_os_window_close 0
       '';
     };
-    ### Shell ###
+    ### SHELL ###
     bash = {
       enable = true;
       enableCompletion = true;

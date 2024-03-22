@@ -18,6 +18,8 @@
   time.timeZone = "America/Toronto";
   i18n.defaultLocale = "en_CA.UTF-8";
 
+  boot.supportedFilesystems = [ "ntfs" ];
+  #"${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"
   ### X11 ###
   services.xserver = {
     enable = true;
@@ -37,7 +39,8 @@
   ### CORE PACKAGES ###
   nixpkgs.config.allowUnfree = true; # Allow unfree packages
   environment.systemPackages = with pkgs; [
-    vimHugeX # Default terminal editor - with x support (+clipboard)
+    vimHugeX # vim with x support (+clipboard)
+    polkit_gnome
     util-linux # system utilities
     coreutils # GNU utilities
     wget # file and recursive website downlaoder
@@ -59,6 +62,7 @@
   };
 
   ### STANDARD DEFAULTS ###
+  security.polkit.enable = true;
   users.defaultUserShell = pkgs.zsh;
   programs = {
     zsh.enable = true;

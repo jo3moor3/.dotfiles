@@ -37,6 +37,17 @@
     fsType = "vfat";
   };
 
+  fileSystems."/run/media/jomor/vault" = {
+    device = "/dev/disk/by-uuid/69af1307-167c-4269-9eb9-9a7bc7cd1ff2";
+    fsType = "ext4";
+  };
+
+  fileSystems."/run/media/jomor/windows" = {
+    device = "/dev/disk/by-uuid/426630F96630EEF3";
+    fsType = "ntfs-3g";
+    options = [ "rw" "uid=1000" ];
+  };
+
   # fileSystems."/persistent" =
   #   { device = "/dev/root_vg/root";
   #     neededForBoot = true;
