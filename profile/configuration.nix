@@ -14,6 +14,10 @@
   ## Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
+  # xsession.pointerCursor = {
+  #   package = pkgs.
+  # };
+
   ### INTERNATIONALISATION PROPERTIES ###
   time.timeZone = "America/Toronto";
   i18n.defaultLocale = "en_CA.UTF-8";

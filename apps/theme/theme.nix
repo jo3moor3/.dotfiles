@@ -7,31 +7,43 @@
     #nerdfonts
     qt5ct
     lxappearance
-    apple-cursor
+    phinger-cursors
     libsForQt5.kcolorchooser
   ];
 
+  ### QT to GTK ###
   qt = {
     enable = true;
     platformTheme = "gtk";
     style.name = "gtk";
   };
 
-  home.file.".config/gtk-3.0/settings.ini".text = ''
-    [Settings]
-    gtk-theme-name=Dracula
-    gtk-icon-theme-name=Dracula
-    gtk-font-name=Sans 10
-    gtk-cursor-theme-size=0
-    gtk-toolbar-style=GTK_TOOLBAR_BOTH_HORIZ
-    gtk-toolbar-icon-size=GTK_ICON_SIZE_LARGE_TOOLBAR
-    gtk-button-images=0
-    gtk-menu-images=0
-    gtk-enable-event-sounds=1
-    gtk-enable-input-feedback-sounds=1
-    gtk-xft-antialias=1
-    gtk-xft-hinting=1
-    gtk-xft-hintstyle=hintmedium
-    gtk-xft-rgba=none
-  '';
+  gtk = {
+    ### UI THEME ###
+    enable = true;
+    theme.name = "Dracula";
+    iconTheme.name
+
+      = "Dracula";
+    font.name = "Sans 10";
+    gtk3.extraConfig = {
+      gtk-toolbar-style = "GTK_TOOLBAR_BOTH_HORIZ";
+      gtk-toolbar-icon-size = "GTK_ICON_SIZE_LARGE_TOOLBAR";
+      gtk-button-images = 0;
+      gtk-menu-images = 0;
+      gtk-enable-event-sounds = 1;
+      gtk-enable-input-feedback-sounds = 1;
+      gtk-xft-antialias = 1;
+      gtk-xft-hinting = 1;
+      gtk-xft-hintstyle = "hintmedium";
+      gtk-xft-rgba = "none";
+    };
+
+    ### CURSOR THEME ###
+    cursorTheme.package = pkgs.phinger-cursors;
+    cursorTheme.name = "phinger-cursors";
+  };
+  home.pointerCursor.gtk.enable = true;
+  home.pointerCursor.package = pkgs.phinger-cursors;
+  home.pointerCursor.name = "phinger-cursors";
 }
