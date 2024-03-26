@@ -16,6 +16,7 @@
     gvfs.enable = true;
     udisks2.enable = true;
   };
+  boot.supportedFilesystems = [ "ntfs" ];
   ### GUI FILE MANAGER ###
   programs.thunar = {
     enable = true;

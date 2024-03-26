@@ -36,11 +36,11 @@
     firefox # slightly better than other mainstream alternatives
     discord # modern gamer skype
     flameshot # screenshot tool
+    peek # screen recorder tool
     glslviewer # shader editor/viewer
     gwenview # image viewer
     #gimp # image editor
     inkscape # vector editor
-    vlc # video player
     mpv # video player
     #libsForQt5.kdenlive # video editor
   ];

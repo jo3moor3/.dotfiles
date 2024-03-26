@@ -101,19 +101,18 @@
         },
        {
             "type": "uptime",
-            "key": " PC",
+            "key": "󰌢 PC",
             "keyColor": "cyan"
         },
         {
             "type": "cpu",
-            "key": "│ ├",
+            "key": "│ ├",
             "keyColor": "cyan"
         },
         {
             "type": "gpu",
-            "key": "│ ├﬙",
+            "key": "│ ├󰘚",
           "keyColor": "cyan",
-          //"format": "{1} RTX 2080 TI",
           "format": "{3}",
         },
         {

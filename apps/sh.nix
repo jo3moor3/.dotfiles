@@ -22,7 +22,7 @@ in {
     zsh
     shellcheck
     ### HEY ###
-    hello
+    #hello
     cached-nix-shell
     ### CONVENIENCE ###
     nix-zsh-completions
