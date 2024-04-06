@@ -1,14 +1,16 @@
 { config, lib, pkgs, ... }:
 
 {
-  services.xserver.videoDrivers = [ "nvidia" ];
-  hardware = {
-    opengl = {
+  options = { Nvidia.enable = lib.mkEnableOption "enables Nvidia"; };
+
+  config = lib.mkIf config.Nvidia.enable {
+    ### OPENGL ###
+    hardware.opengl = {
       enable = true;
       driSupport = true;
       driSupport32Bit = true;
     };
-    # nvidia
+    ### NVIDIA ###
     nvidia = {
       package = config.boot.kernelPackages.nvidiaPackages.beta;
       modesetting.enable = true;
@@ -16,5 +18,7 @@
       powerManagement.finegrained = false;
       open = false;
     };
+    services.xserver.videoDrivers = [ "nvidia" ];
   };
+
 }

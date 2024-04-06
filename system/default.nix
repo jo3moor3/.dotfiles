@@ -4,7 +4,7 @@
   imports = [
     ./hardware-configuration.nix
     ./security.nix
-    ./nvidia.nix
+    ./Nvidia.nix
     ./audio.nix
     ./disk.nix
     ./sleep.nix
