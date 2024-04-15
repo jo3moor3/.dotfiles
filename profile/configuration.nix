@@ -27,6 +27,8 @@
     };
   };
 
+  Nvidia.enable = true;
+
   ### USER ACCOUNT ###
   users.users.jomor = {
     isNormalUser = true;

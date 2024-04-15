@@ -31,7 +31,8 @@
     python311Packages.pytest
     #nix
     nil
-    nixfmt
+    nixfmt-classic
+    #nixfmt-rfc-style
   ];
   services.emacs = {
     enable = true;

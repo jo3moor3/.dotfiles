@@ -42,7 +42,7 @@
     #gimp # image editor
     inkscape # vector editor
     mpv # video player
-    #libsForQt5.kdenlive # video editor
+    libsForQt5.kdenlive # video editor
   ];
 
   ### global enivironment variables ###
