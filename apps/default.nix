@@ -10,5 +10,6 @@
     ./theme/theme.nix
     ./dunst/dunst.nix
     ./ranger/ranger.nix
+    ./waybar.nix
   ];
 }
