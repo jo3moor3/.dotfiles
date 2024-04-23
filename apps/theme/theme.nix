@@ -6,9 +6,12 @@
     dracula-icon-theme
     #nerdfonts
     qt5ct
-    lxappearance
+    #lxappearance
+    nwg-look
     phinger-cursors
-    libsForQt5.kcolorchooser
+    #hyprcursor
+    hyprpicker
+    #libsForQt5.kcolorchooser
   ];
 
   ### QT to GTK ###
@@ -22,9 +25,7 @@
     ### UI THEME ###
     enable = true;
     theme.name = "Dracula";
-    iconTheme.name
-
-      = "Dracula";
+    iconTheme.name = "Dracula";
     font.name = "Sans 10";
     gtk3.extraConfig = {
       gtk-toolbar-style = "GTK_TOOLBAR_BOTH_HORIZ";
@@ -40,10 +41,13 @@
     };
 
     ### CURSOR THEME ###
-    cursorTheme.package = pkgs.phinger-cursors;
-    cursorTheme.name = "phinger-cursors";
+    #cursorTheme.package = pkgs.phinger-cursors;
+    #cursorTheme.name = "phinger-cursors";
   };
-  home.pointerCursor.gtk.enable = true;
-  home.pointerCursor.package = pkgs.phinger-cursors;
-  home.pointerCursor.name = "phinger-cursors";
+  home.pointerCursor = {
+    gtk.enable = true;
+    package = pkgs.gnome.adwaita-icon-theme;
+    name = "Adwaita";
+    size = 14;
+  };
 }

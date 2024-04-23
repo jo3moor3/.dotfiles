@@ -16,25 +16,32 @@
     });
     style = ''
       * {
-      	font-size: 20px;
+      	font-size: 16px;
       	font-family: monospace;
       }
 
       window#waybar {
-      	background: #292b2e;
-      	color: #fdf6e3;
+      	background: #44475A;
+      	color: #F8F8F2;
       }
 
       #custom-right-arrow-dark,
       #custom-left-arrow-dark {
-      	color: #1a1a1a;
+      	color: #282A36;
+        background: #44475A;
       }
       #custom-right-arrow-light,
       #custom-left-arrow-light {
-      	color: #292b2e;
-      	background: #1a1a1a;
+      	color: #44475A;
+      	background: #282A36;
       }
 
+      #custom-nightlight {
+      	background: #282A36;
+      }
+      #custom-notification {
+        background: #282A36;
+      }
       #workspaces,
       #clock.1,
       #clock.2,
@@ -45,48 +52,48 @@
       #battery,
       #disk,
       #tray {
-      	background: #1a1a1a;
+      	background: #282A36;
       }
 
       #workspaces button {
       	padding: 0 2px;
-      	color: #fdf6e3;
+      	color: #F8F8F2;
       }
       #workspaces button.focused {
-      	color: #268bd2;
+      	color: #f1fa8c;
       }
-            #workspaces button.active {
-              padding: 0 5px;
-              color: #f1fa8c;
+      #workspaces button.active {
+        padding: 0 2px;
+      	color: #f1fa8c;
             }
-            #workspaces button.empty {
-              padding: 0 5px;
-              color: #ff79c6;
+      #workspaces button.empty {
+        padding: 0 2px;
+      	color: #F8F8F2;
             }
       #workspaces button:hover {
       	box-shadow: inherit;
       	text-shadow: inherit;
       }
       #workspaces button:hover {
-      	background: #1a1a1a;
-      	border: #1a1a1a;
+      	background: #282A36;
+      	border: #282A36;
       	padding: 0 3px;
       }
 
       #pulseaudio {
-      	color: #268bd2;
+      	color: #8BE9FD;
       }
       #memory {
-      	color: #2aa198;
+      	color: #50FA7B;
       }
       #cpu {
-      	color: #6c71c4;
+      	color: #BD93F9;
       }
       #battery {
       	color: #859900;
       }
       #disk {
-      	color: #b58900;
+      	color: #FFB86C;
       }
 
       #clock,
@@ -102,7 +109,7 @@
       mainBar = {
         height = 30; # Waybar height (to be removed for auto height)
         # "width": 1280, # Waybar width
-        spacing = 4; # Gaps between modules (4px)
+        #spacing = 4; # Gaps between modules (4px)
         # Choose the order of the modules
         modules-left = [
           "hyprland/workspaces"
@@ -125,8 +132,7 @@
         ];
         modules-right = [
           "custom/left-arrow-dark"
-          "tray"
-          "idle_inhibitor"
+          #"idle_inhibitor"
           #"network"
           "pulseaudio"
           "mpd"
@@ -144,7 +150,40 @@
           "disk"
           "custom/left-arrow-light"
           "custom/left-arrow-dark"
+          "tray"
+          "custom/nightlight"
+          "custom/notification"
         ];
+        "custom/notification" = {
+          "tooltip" = false;
+          "format" = "{icon}";
+          "format-icons" = {
+            "notification" = "<span foreground='red'><sup></sup></span>";
+            "none" = "";
+            "dnd-notification" = "<span foreground='red'><sup></sup></span>";
+            "dnd-none" = "";
+            "inhibited-notification" =
+              "<span foreground='red'><sup></sup></span>";
+            "inhibited-none" = "";
+            "dnd-inhibited-notification" =
+              "<span foreground='red'><sup></sup></span>";
+            "dnd-inhibited-none" = "";
+          };
+          "return-type" = "json";
+          "exec-if" = "which swaync-client";
+          "exec" = "swaync-client -swb";
+          "on-click" = "swaync-client -t -sw";
+          "on-click-right" = "swaync-client -d -sw";
+          "escape" = true;
+        };
+        "custom/nightlight" = {
+          "return type" = "json";
+          "format" = " {} ";
+          "exec" = "~/.dotfiles/apps/light/sunONOFF.sh";
+          "on-click" = "hyprshade toggle";
+          "restart-interval" = 1;
+          "tooltip" = false;
+        };
         "custom/left-arrow-dark" = {
           "format" = "";
           "tooltip" = false;
@@ -166,7 +205,7 @@
           "tooltip" = false;
         };
         "clock#2" = {
-          "format" = "{:%H:%M}";
+          "format" = "{:%I:%M}";
           "tooltip" = false;
         };
         "clock#3" = {
@@ -176,18 +215,25 @@
         ### MODULES CONFIG ###
         "hyprland/workspaces" = {
           disable-scroll = true;
-          all-outputs = true;
+          #all-outputs = true;
+          persistent-workspaces = {
+            "1" = [ ];
+            "2" = [ ];
+            "3" = [ ];
+            "4" = [ ];
+            "5" = [ ];
+          };
           warp-on-scroll = false;
-          format = "{name}: {icon}";
+          format = "{icon}";
           "format-icons" = {
             # "1" = "";
             # "2" = "";
             # "3" = "";
             # "4" = "";
             # "5" = "";
-            "urgent" = "";
-            "focused" = "";
-            "default" = "";
+            "empty" = "";
+            "default" = "";
+            "active" = "";
           };
         };
 
@@ -233,35 +279,6 @@
           format = "{percent}% {icon}";
           format-icons = [ "" "" "" "" "" "" "" "" "" ];
         };
-        # "battery"= {
-        #     "states" = {
-        #          "good" = 95;
-        #         "warning" = 30;
-        #         "critical" = 15;
-        #     },
-        #     "format" = "{capacity}% {icon}",
-        #     "format-full" = "{capacity}% {icon}";
-        #     "format-charging" = "{capacity}% ";
-        #     "format-plugged" = "{capacity}% ";
-        #     "format-alt" = "{time} {icon}";
-        #     "format-good" = ""; # An empty format will hide the module
-        #     "format-full" = "";
-        #     "format-icons" = ["" "" "" "" ""];
-        # },
-        # "battery#bat2" = {
-        #     "bat" = "BAT2";
-        # };
-        # "power-profiles-daemon" = {
-        #   "format" = "{icon}";
-        #   "tooltip-format" = "Power profile = {profile}\nDriver = {driver}";
-        #   "tooltip" = true;
-        #   "format-icons" = {
-        #     "default" = "";
-        #     "performance"= "";
-        #     "balanced" = "";
-        #     "power-saver" = "";
-        #   };
-        # };
         network = {
           # "interface" = "wlp2*"; # (Optional) To force the use of this interface
           format-wifi = "{essid} ({signalStrength}%) ";
@@ -276,9 +293,9 @@
           format = "{volume}% {icon} {format_source}";
           "format-bluetooth" = "{volume}% {icon} {format_source}";
           "format-bluetooth-muted" = " {icon} {format_source}";
-          "format-muted" = " {format_source}";
+          "format-muted" = "󰝟 {format_source}";
           "format-source" = "{volume}% ";
-          "format-source-muted" = "";
+          "format-source-muted" = " ";
           "format-icons" = {
             headphone = "";
             hands-free = "";

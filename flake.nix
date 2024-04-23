@@ -14,6 +14,15 @@
     # impermanence.url = "github:nix-community/impermanence";
     # impermanence.inputs.nixpkgs.follows = "nixpkgs";
 
+    hyprland = {
+      url = "github:hyprwm/Hyprland";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    hyprland-plugins = {
+      url = "github:hyprwm/hyprland-plugins";
+      inputs.hyprland.follows = "hyprland";
+    };
+
     ## Fixing dynamicallly linked executables, because nixos can't natively. ###
     nix-ld.url = "github:Mic92/nix-ld";
     nix-ld.inputs.nixpkgs.follows = "nixpkgs";

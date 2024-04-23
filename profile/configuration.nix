@@ -40,15 +40,31 @@
   nixpkgs.config.allowUnfree = true; # Allow unfree packages
   environment.systemPackages = with pkgs; [
     #vimHugeX # vim with x support (+clipboard)
+    xmousepasteblock # disable middle mouse paste
     polkit_gnome # authenticatoin agent
     util-linux # system utilities
+    xdg-utils
+    libva-utils
+    #libva
     coreutils # GNU utilities
     wget # file and recursive website downlaoder
     ruby # GPL needed for hey script
     gnumake # build tool
-    #cmake # build tool
+    cmake # build tool
     #libtool # generic library support
   ];
+
+  xdg.portal = {
+    enable = true;
+    wlr.enable = true;
+    config.common.default = [ "*" ];
+    xdgOpenUsePortal = true;
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-gtk
+      xdg-desktop-portal-wlr
+      xdg-desktop-portal-hyprland
+    ];
+  };
 
   ### DYNAMICALLY LINKED EXECUTABLES ###
   programs.nix-ld = {
@@ -57,9 +73,14 @@
       curl
       sbcl # lisp
       codeium # AI language server
+      libGL
+      libva
+      xorg.libxcb
       # ...
     ];
   };
+
+  ### global enivironment variables ###
 
   ### STANDARD DEFAULTS ###
   security.polkit.enable = true;

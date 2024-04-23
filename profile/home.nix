@@ -21,7 +21,6 @@
     userEmail = "jo3moore@gmail.com";
     extraConfig = { init.defaultBranch = "main"; };
   };
-
   ### VIRTUALIZATION ###
   dconf.settings = {
     "org/virt-manager/connections" = {
@@ -30,13 +29,24 @@
     };
   };
 
+  wayland.windowManager.hyprland.enableNvidiaPatches = true;
+
   ### USER PACKAGES ###
   nixpkgs.config.allowUnfree = true;
   home.packages = with pkgs; [
     firefox # slightly better than other mainstream alternatives
-    discord # modern gamer skype
-    flameshot # screenshot tool
-    peek # screen recorder tool
+    #discord # modern gamer skype
+    #webcord-vencord
+    webcord
+    ### SCREEN SHOT ###
+    hyprshot
+    grimblast
+    wl-clipboard
+    grim
+    slurp
+    jq
+    #flameshot
+    #peek # screen recorder tool
     glslviewer # shader editor/viewer
     gwenview # image viewer
     #gimp # image editor
@@ -45,5 +55,4 @@
     libsForQt5.kdenlive # video editor
   ];
 
-  ### global enivironment variables ###
 }

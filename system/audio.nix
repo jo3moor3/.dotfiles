@@ -4,6 +4,7 @@
   environment.systemPackages = with pkgs; [
     pulseaudio
     pavucontrol
+    pamixer
     pulseaudioFull
   ];
   sound.enable = true;
