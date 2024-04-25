@@ -40,7 +40,6 @@
     webcord
     ### SCREEN SHOT ###
     hyprshot
-    grimblast
     wl-clipboard
     grim
     slurp

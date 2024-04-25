@@ -12,6 +12,8 @@ let
     cdi = "zi";
     grep = "rg";
     hey = "~/.dotfiles/bin/hey.sh";
+    w = "Hyprland";
+    x = "startx";
   };
 in {
 

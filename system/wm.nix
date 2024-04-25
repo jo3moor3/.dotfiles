@@ -1,29 +1,45 @@
 { config, lib, pkgs, inputs, ... }:
 
-let
-  tuigreet = "${pkgs.greetd.tuigreet}/bin/tuigreet";
-  session = "${pkgs.hyprland}/bin/Hyprland";
-  username = "jomor";
-in {
+# let
+#   tuigreet = "${pkgs.greetd.tuigreet}/bin/tuigreet";
+#   session = "${pkgs.hyprland}/bin/Hyprland";
+#   username = "jomor";
+# in
+{
 
-  services.xserver.enable = true;
-  services.xserver.windowManager.qtile = { enable = true; };
-
-  security.pam.services.swaylock = { };
-  services.greetd = {
+  services.xserver = {
     enable = true;
-    settings = {
-      initial_session = {
-        command = "${session}";
-        user = "${username}";
-      };
-      default_session = {
-        command =
-          "${tuigreet} --greeting 'Welcome to NixOS!' --asterisks --remember --remember-user-session --time --cmd ${session}";
-        user = "greeter";
-      };
+    xkb = {
+      layout = "us";
+      variant = "";
     };
+    videoDrivers = [ "nvidia" ];
+    windowManager.qtile = { enable = true; };
   };
+  services.xserver.displayManager.startx.enable = true;
+
+  # services.getty.autologinUser = "jomor";
+
+  ### greetd login (for Wayland) ###
+  # services.greetd = {
+  #   enable = true;
+  #   settings = {
+  #     initial_session = {
+  #       command = "${session}";
+  #       user = "${username}";
+  #     };
+  #     default_session = {
+  #       command =
+  #         "${tuigreet} --greeting 'Welcome to NixOS!' --sessions ${session}:${xsession} --asterisks --remember --remember-user-session --time --cmd ${session}";
+  #       user = "greeter";
+  #     };
+  #   };
+  # };
+
+  ## lock screen after autologin
+  #security.pam.services.swaylock = { };
+  services.getty.extraArgs = [ "--skip-login" ];
+  services.getty.loginOptions = "-p -- jomor";
 
   programs = {
     hyprland = {
@@ -41,17 +57,15 @@ in {
   };
 
   environment.systemPackages = with pkgs; [
-    greetd.tuigreet
-
-    #swaylock
-    hyprland-protocols
-    libsForQt5.qt5.qtwayland
-    libsForQt5.qt5.qtgraphicaleffects
-    libsForQt5.qt5.qtquickcontrols
-    #kdePackages.waylib
-    where-is-my-sddm-theme
-    qt6.qtwayland
+    ### X11 ###
     qtile
+    xorg.libX11
+    feh
+    ### WAYLAND ###
+    #greetd.tuigreet
+    hyprland-protocols
+    qt6.qtwayland
+    #libsForQt5.qt5.qtwayland
     swaynotificationcenter
     libnotify
     swaybg
@@ -61,6 +75,5 @@ in {
     wayland
     wlr-randr
     waydroid
-    feh
   ];
 }

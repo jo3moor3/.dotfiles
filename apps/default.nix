@@ -11,6 +11,6 @@
     ./dunst/dunst.nix
     ./ranger/ranger.nix
     ./waybar.nix
-    ./swaylock.nix
+    #./swaylock.nix
   ];
 }

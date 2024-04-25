@@ -18,15 +18,6 @@
   time.timeZone = "America/Toronto";
   i18n.defaultLocale = "en_CA.UTF-8";
 
-  ### X11 ###
-  services.xserver = {
-    enable = true;
-    xkb = {
-      layout = "us";
-      variant = "";
-    };
-  };
-
   Nvidia.enable = true;
 
   ### USER ACCOUNT ###
@@ -40,6 +31,7 @@
   nixpkgs.config.allowUnfree = true; # Allow unfree packages
   environment.systemPackages = with pkgs; [
     #vimHugeX # vim with x support (+clipboard)
+    vim
     xmousepasteblock # disable middle mouse paste
     polkit_gnome # authenticatoin agent
     util-linux # system utilities
