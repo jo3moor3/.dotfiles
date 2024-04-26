@@ -7,10 +7,10 @@
     ./light/nightlight.nix
     ./rofi/rofi.nix
     ./picom/picom.nix
-    ./theme/theme.nix
+    ./qt-gtk.nix
     ./dunst/dunst.nix
     ./ranger/ranger.nix
     ./waybar.nix
-    #./swaylock.nix
+    ./udiskie.nix
   ];
 }

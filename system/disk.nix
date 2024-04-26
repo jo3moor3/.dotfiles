@@ -5,7 +5,6 @@
     gparted # partition manager
     gvfs # automounting drives
     udisks # drive manager backend
-    udiskie # drive manager frontend
     libsForQt5.filelight # Visualizing disk usage
     libsForQt5.ark # For extracting archives
     ntfs3g # For reading NTFS filesystems
