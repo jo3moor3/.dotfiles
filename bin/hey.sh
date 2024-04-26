@@ -70,10 +70,11 @@ module Hey
     end
   end
   def self.rebuild(*args, sudo: false)
-    sh ["nixos-rebuild",
-        "--flake", "#{@@opts[:flake]}##{@@opts[:host]}",
-        "--option", "pure-eval", "no",
-        *args], sudo: sudo
+    sh ["nh", "os", "switch",
+        #"--flake",
+        "--hostname","#{@@opts[:host]}", "#{@@opts[:flake]}",
+        #"--option", "pure-eval", "no",
+        *args]
   end
 
   #
@@ -100,7 +101,7 @@ module Hey
   defcmd [:home, :ho] do
     desc "Run 'home-manager rebuild' on your dotfiles"
     lambda do |args|
-      sh ["home-manager", "switch", "--flake", @@opts[:flake]]
+      sh ["nh", "home", "switch", @@opts[:flake]]
     end
   end
 
@@ -143,21 +144,24 @@ module Hey
 
   defcmd [:rebuild, :re] do
     desc "Rebuild the current system's flake"
-    opts       '--build-host HOST',  "Where to build the flake"
-    opts       '--target-host HOST', "Where to deploy the built derivations"
-    opts       '--host HOST',        "The target nixosConfiguration to build"
-    opts       '--user',             "Rebuild as user, rather than root"
-    opts       '--fast',             "Equivalent to --no-build-nix --show-trace for quick rebuilding"
     lambda do |args|
-      Dir.chdir(@@opts[:flake]) do
-        args = ["switch"] unless args.length > 0
-        rebuild(*(@@opts[:"build-host"]  ? ["--build-host",  @@opts[:"build-host"]]  : []),
-                *(@@opts[:"target-host"] ? ["--target-host", @@opts[:"target-host"]] : []),
-                @@opts[:fast]  ? "--fast"       : nil,
-                @@opts[:debug] ? "--show-trace" : nil,
-                *args,
-                sudo: !@@opts[:user])
-      end
+    rebuild
+    # opts       '--hostname HOST',  "Where to build the flake for nh"
+    # opts       '--build-host HOST',  "Where to build the flake"
+    # opts       '--target-host HOST', "Where to deploy the built derivations"
+    # opts       '--hostname HOST',        "The target nixosConfiguration to build"
+    # opts       '--user',             "Rebuild as user, rather than root"
+    # opts       '--fast',             "Equivalent to --no-build-nix --show-trace for quick rebuilding"
+    # lambda do |args|
+    #   Dir.chdir(@@opts[:flake]) do
+    #     args = ["switch"] unless args.length > 0
+    #     rebuild(*(@@opts[:"build-host"]  ? ["--build-host",  @@opts[:"build-host"]]  : []),
+    #             *(@@opts[:"target-host"] ? ["--target-host", @@opts[:"target-host"]] : []),
+    #             @@opts[:fast]  ? "--fast"       : nil,
+    #             @@opts[:debug] ? "--show-trace" : nil,
+    #             *args,
+    #             sudo: !@@opts[:user])
+    #   end
     end
   end
 
@@ -266,7 +270,7 @@ module Hey
       end
       if @@opts[:all] or not @@opts[:system]
         puts "Cleaning up your user profile..."
-        sh %w{nix-collect-garbage -d}
+        sh %w{nh clean all}, sudo: true
       end
     end
   end

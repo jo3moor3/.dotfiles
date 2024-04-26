@@ -30,6 +30,7 @@
   ### CORE PACKAGES ###
   nixpkgs.config.allowUnfree = true; # Allow unfree packages
   environment.systemPackages = with pkgs; [
+    nh # nix helper
     #vimHugeX # vim with x support (+clipboard)
     vim
     xmousepasteblock # disable middle mouse paste

@@ -29,8 +29,6 @@
     };
   };
 
-  wayland.windowManager.hyprland.enableNvidiaPatches = true;
-
   ### USER PACKAGES ###
   nixpkgs.config.allowUnfree = true;
   home.packages = with pkgs; [

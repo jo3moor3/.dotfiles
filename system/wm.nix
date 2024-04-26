@@ -1,10 +1,5 @@
 { config, lib, pkgs, inputs, ... }:
 
-# let
-#   tuigreet = "${pkgs.greetd.tuigreet}/bin/tuigreet";
-#   session = "${pkgs.hyprland}/bin/Hyprland";
-#   username = "jomor";
-# in
 {
 
   services.xserver = {
@@ -18,26 +13,6 @@
   };
   services.xserver.displayManager.startx.enable = true;
 
-  # services.getty.autologinUser = "jomor";
-
-  ### greetd login (for Wayland) ###
-  # services.greetd = {
-  #   enable = true;
-  #   settings = {
-  #     initial_session = {
-  #       command = "${session}";
-  #       user = "${username}";
-  #     };
-  #     default_session = {
-  #       command =
-  #         "${tuigreet} --greeting 'Welcome to NixOS!' --sessions ${session}:${xsession} --asterisks --remember --remember-user-session --time --cmd ${session}";
-  #       user = "greeter";
-  #     };
-  #   };
-  # };
-
-  ## lock screen after autologin
-  #security.pam.services.swaylock = { };
   services.getty.extraArgs = [ "--skip-login" ];
   services.getty.loginOptions = "-p -- jomor";
 

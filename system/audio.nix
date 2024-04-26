@@ -9,8 +9,9 @@
   ];
   sound.enable = true;
   hardware.pulseaudio = {
-    package = pkgs.pulseaudioFull;
     enable = true;
+    package = pkgs.pulseaudioFull;
+    #hardware.pulseaudio.support32Bit = true;
   };
   users.extraUsers.jomor.extraGroups = [ "audio" ];
   nixpkgs.config.pulseaudio = true;
