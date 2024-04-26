@@ -178,7 +178,9 @@ module Hey
     lambda do |args|
       if args.empty?
         puts "Updating all flakes.."
-        sh ["nix", "flake", "update", @@opts[:flake], "--impure"]
+        sh ["nh", "os", "switch", "--update", @@opts[:flake],"--ask"
+            #, "--impure"
+            ]
       else
         puts "Trying to update flakes: #{args.join ' '}"
         sh ["nix", "flake", "lock", "--impure"]
