@@ -14,14 +14,22 @@
     # impermanence.url = "github:nix-community/impermanence";
     # impermanence.inputs.nixpkgs.follows = "nixpkgs";
 
+    ### ez Theming ###
+    # stylix.url = "github:danth/stylix";
+    # stylix.inputs.nixpkgs.follows = "nixpkgs";
+
     hyprland = {
-      url = "github:hyprwm/Hyprland";
+      url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    hyprland-plugins = {
-      url = "github:hyprwm/hyprland-plugins";
-      inputs.hyprland.follows = "hyprland";
-    };
+    # hyprland-plugins = {
+    #   url = "github:hyprwm/hyprland-plugins";
+    #   inputs.hyprland.follows = "hyprland";
+    # };
+    # hyprcursor-phinger = {
+    #   url = "github:jappie3/hyprcursor-phinger";
+    #   inputs.hyprland.follows = "hyprland";
+    # };
 
     ## Fixing dynamicallly linked executables, because nixos can't natively. ###
     nix-ld.url = "github:Mic92/nix-ld";
@@ -30,12 +38,17 @@
     ### secrets management ###
     sops-nix.url = "github:Mic92/sops-nix";
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
+
+    ### Secure boot through lanzaboote ###
+    # lanzaboote.url = "github:nix-community/lanzaboote/v0.3.0";
+    # lanzaboote.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
     ## when on the impermanence grind, add it back here
-    { self, nixpkgs, nixpkgs-stable, home-manager, nix-ld, sops-nix, ... }:
+    { self, nixpkgs, nixpkgs-stable, home-manager, ... }@inputs:
     let
+      #inputs = self.inputs;
       lib = nixpkgs.lib;
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
@@ -48,14 +61,12 @@
           inherit system;
           modules = [
             ./profile/configuration.nix
-            # impermanence.nixosModules.impermanence
-            nix-ld.nixosModules.nix-ld
-            sops-nix.nixosModules.sops
+            inputs.nix-ld.nixosModules.nix-ld
+            inputs.sops-nix.nixosModules.sops
+            # inputs.lanzaboote.nixosModules.lanzaboote
+            #inputs.impermanence.nixosModules.impermanence
+            #inputs.stylix.nixosModules.stylix
           ];
-          specialArgs = {
-            inherit pkgs-stable;
-            inherit username;
-          };
         };
       };
 
@@ -66,6 +77,7 @@
           extraSpecialArgs = {
             inherit pkgs-stable;
             inherit username;
+            inherit inputs;
           };
         };
       };

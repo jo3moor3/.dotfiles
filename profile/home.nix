@@ -1,4 +1,4 @@
-{ config, pkgs, pkgs-stable, ... }: {
+{ config, pkgs, inputs, pkgs-stable, ... }: {
   imports = [ ../apps/default.nix ];
 
   ### HOME-MANAGER ###
@@ -7,12 +7,18 @@
   home.homeDirectory = "/home/jomor";
   home.stateVersion = "23.11";
 
+  ### A tidy $HOME is a tidy mind
+  xdg.enable = true;
+
   ### KEYBINDINGS ###
   home.keyboard.options = [ "caps:super" ];
 
   ### IMPORTANT SERVICES ###
   xsession.enable = true; # x11 environment
-  services = { udiskie.enable = true; }; # automount daemon
+  services = {
+    udiskie.enable = true;
+    cliphist.enable = true;
+  }; # automount daemon
 
   ### GIT ###
   programs.git = {
@@ -22,12 +28,12 @@
     extraConfig = { init.defaultBranch = "main"; };
   };
   ### VIRTUALIZATION ###
-  dconf.settings = {
-    "org/virt-manager/connections" = {
-      autoconnect = [ "qemu:///system" ];
-      uris = [ "qemu:///system" ];
-    };
-  };
+  # dconf.settings = {
+  #   "org/virt-manager/connections" = {
+  #     autoconnect = [ "qemu:///system" ];
+  #     uris = [ "qemu:///system" ];
+  #   };
+  # };
 
   ### USER PACKAGES ###
   nixpkgs.config.allowUnfree = true;
@@ -35,18 +41,23 @@
     firefox # slightly better than other mainstream alternatives
     #discord # modern gamer skype
     #webcord-vencord
+    wayland
     webcord
+    spotify
+    steam
     ### SCREEN SHOT ###
     hyprshot
-    wl-clipboard
     grim
     slurp
     jq
     #flameshot
-    #peek # screen recorder tool
+    peek # screen recorder tool
+    obs-studio
+    obs-cli
+    kooha
     glslviewer # shader editor/viewer
     gwenview # image viewer
-    #gimp # image editor
+    gimp # image editor
     inkscape # vector editor
     mpv # video player
     libsForQt5.kdenlive # video editor

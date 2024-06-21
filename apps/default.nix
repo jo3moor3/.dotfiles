@@ -12,5 +12,6 @@
     ./ranger/ranger.nix
     ./waybar.nix
     ./udiskie.nix
+    ./hyprland/hyprland.nix
   ];
 }

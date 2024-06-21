@@ -8,7 +8,6 @@
 
   boot.initrd.availableKernelModules =
     [ "nvme" "xhci_pci" "ahci" "usb_storage" "uas" "usbhid" "sd_mod" ];
-  boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
@@ -42,10 +41,10 @@
     fsType = "ext4";
   };
 
-  fileSystems."/run/media/jomor/windows" = {
-    device = "/dev/disk/by-uuid/426630F96630EEF3";
-    fsType = "ntfs-3g";
-    options = [ "rw" "uid=1000" ];
+  fileSystems."/run/media/jomor/fastbub" = {
+    device = "/dev/disk/by-uuid/c7b734cc-2002-4dcd-8bb5-2a4198419e7e";
+    fsType = "ext4";
+    #options = [ "rw" "uid=1000" ];
   };
 
   # fileSystems."/persistent" =

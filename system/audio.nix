@@ -2,17 +2,21 @@
 
 {
   environment.systemPackages = with pkgs; [
-    pulseaudio
+    #pulseaudio
+    #pulseaudioFull
     pavucontrol
     pamixer
-    pulseaudioFull
   ];
-  sound.enable = true;
-  hardware.pulseaudio = {
+
+  security.rtkit.enable = true;
+  services.pipewire = {
     enable = true;
-    package = pkgs.pulseaudioFull;
-    #hardware.pulseaudio.support32Bit = true;
+    pulse.enable = true;
+    wireplumber.enable = true;
+    # alsa.enable = true;
+    # jack.enable = true;
   };
+
   users.extraUsers.jomor.extraGroups = [ "audio" ];
   nixpkgs.config.pulseaudio = true;
 }

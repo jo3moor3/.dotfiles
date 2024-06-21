@@ -1,6 +1,9 @@
 { config, lib, pkgs, ... }:
 
 {
+home.packages = with pkgs; [
+udiskie
+];
   ### drive manager frontend ###
   services.udiskie = {
     enable = true;

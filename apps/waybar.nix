@@ -17,22 +17,21 @@
     style = ''
       * {
       	font-size: 16px;
-      	font-family: monospace;
+      	font-family: mono, FontAwesome6Free, SymbolsNerdFont;
       }
-
       window#waybar {
-      	background: #44475A;
+        background: rgba(68, 71, 90, 1);
       	color: #F8F8F2;
       }
 
       #custom-right-arrow-dark,
       #custom-left-arrow-dark {
       	color: #282A36;
-        background: #44475A;
+        background: rgba(68, 71, 90, 1);
       }
       #custom-right-arrow-light,
       #custom-left-arrow-light {
-      	color: #44475A;
+        color: rgba(68, 71, 90, 1);
       	background: #282A36;
       }
 
@@ -156,7 +155,7 @@
         ];
         "custom/notification" = {
           "tooltip" = false;
-          "format" = "{icon}";
+          "format" = " {icon}";
           "format-icons" = {
             "notification" = "<span foreground='red'><sup></sup></span>";
             "none" = "";
@@ -178,7 +177,7 @@
         };
         "custom/nightlight" = {
           "return type" = "json";
-          "format" = " {} ";
+          "format" = "  {} ";
           "exec" = "~/.dotfiles/apps/light/sunONOFF.sh";
           "on-click" = "hyprshade toggle";
           "restart-interval" = 1;

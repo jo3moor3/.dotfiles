@@ -12,7 +12,7 @@ let
     cdi = "zi";
     grep = "rg";
     hey = "~/.dotfiles/bin/hey.sh";
-    w = "Hyprland";
+    w = "dbus-run-session Hyprland";
     x = "startx";
   };
 in {

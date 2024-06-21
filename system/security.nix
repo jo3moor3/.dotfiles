@@ -1,10 +1,33 @@
-{ config, lib, ... }:
+{ pkgs, config, lib, ... }:
 
 {
   ## System security tweaks
   # sets hidepid=2 on /proc (make process info visible only to owning user)
   # NOTE Was removed on nixpkgs-unstable because it doesn't do anything
   # security.hideProcessInformation = true;
+
+  ### TPM SETUP ###
+  security.tpm2 = {
+    enable = true;
+    # expose /run/current-system/sw/lib/libtpm2_pkcs11.so
+    pkcs11.enable = true;
+    # TPM2TOOLS_TCTI and TPM2_PKCS11_TCTI env variables
+    tctiEnvironment.enable = true;
+  };
+
+  ### SECURE BOOT ###
+  # environment.systemPackages =
+  #   [ pkgs.sbctl ]; # for debugging and troubleshooting secureboot
+  # Lanzaboote currently replaces the systemd-boot module.
+  # This setting is usually set to true in configuration.nix
+  # generated at installation time. So we force it to false
+  # for now.g and troubleshooting secureboot
+  # boot.loader.systemd-boot.enable = lib.mkForce false;
+  # boot.lanzaboote = {
+  #   enable = true;
+  #   pkiBundle = "/etc/secureboot";
+  # };
+
   # Prevent replacing the running kernel w/o reboot
   security.protectKernelImage = true;
 

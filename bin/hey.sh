@@ -126,6 +126,13 @@ module Hey
     end
   end
 
+  defcmd [:search, :s] do
+    desc "Seach for a nix package"
+    lambda do |args|
+      sh ["nh", "search"]
+    end
+  end
+
   defcmd :theme do
     desc 'Quickly swap to another theme module'
     args "THEME_NAME"

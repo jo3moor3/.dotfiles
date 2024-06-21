@@ -10,9 +10,9 @@
   ### NETWORKING ###
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable working.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
+  #networking.firewall.allowedUDPPorts = [ 5930 ];
   ## Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+  #networking.firewall.enable = false;
 
   ### INTERNATIONALISATION PROPERTIES ###
   time.timeZone = "America/Toronto";
@@ -24,11 +24,14 @@
   users.users.jomor = {
     isNormalUser = true;
     description = "Jomor";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "tss" ];
   };
 
   ### CORE PACKAGES ###
-  nixpkgs.config.allowUnfree = true; # Allow unfree packages
+  nixpkgs.config = {
+    allowUnfree = true; # Allow unfree packages
+    cudaSupport = true;
+  };
   environment.systemPackages = with pkgs; [
     ### PRETTIER NIXPKGS ###
     nh # nix helper
@@ -37,30 +40,21 @@
     #vimHugeX # vim with x support (+clipboard)
     vim
     xmousepasteblock # disable middle mouse paste
-    polkit_gnome # authenticatoin agent
+    #polkit_gnome # authenticatoin agent
+    polkit-kde-agent
     util-linux # system utilities
     xdg-utils
     libva-utils
+    #epoll-shim
     #libva
     coreutils # GNU utilities
     wget # file and recursive website downlaoder
     ruby # GPL needed for hey script
+    go
     gnumake # build tool
     cmake # build tool
     #libtool # generic library support
   ];
-
-  xdg.portal = {
-    enable = true;
-    wlr.enable = true;
-    config.common.default = [ "*" ];
-    xdgOpenUsePortal = true;
-    extraPortals = with pkgs; [
-      xdg-desktop-portal-gtk
-      xdg-desktop-portal-wlr
-      xdg-desktop-portal-hyprland
-    ];
-  };
 
   ### DYNAMICALLY LINKED EXECUTABLES ###
   programs.nix-ld = {
@@ -72,6 +66,7 @@
       libGL
       libva
       xorg.libxcb
+      libexecinfo
       # ...
     ];
   };

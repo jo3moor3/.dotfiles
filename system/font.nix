@@ -3,7 +3,7 @@
 {
   fonts.fontDir.enable = true;
 
-  environment.systemPackages = with pkgs; [ font-manager ];
+  #environment.systemPackages = with pkgs; [ font-manager ];
 
   fonts.packages = with pkgs; [
     ## Rofi  font ##

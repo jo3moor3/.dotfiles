@@ -11,5 +11,5 @@
     ];
 
   ### Transparent/dracula theme ###
-  home.file.".config/WebCord/Themes/op.theme" = { source = ./op.theme; };
+  #home.file.".config/WebCord/Themes/op.theme" = { source = ./op.theme; };
 }

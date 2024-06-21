@@ -8,7 +8,7 @@
     qt5ct
     #lxappearance
     nwg-look
-    phinger-cursors
+    #phinger-cursors
     #hyprcursor
     hyprpicker
     #libsForQt5.kcolorchooser
@@ -41,8 +41,8 @@
     };
 
     ### CURSOR THEME ###
-    #cursorTheme.package = pkgs.phinger-cursors;
-    #cursorTheme.name = "phinger-cursors";
+    # cursorTheme.package = pkgs.phinger-cursors;
+    # cursorTheme.name = "phinger-cursors";
   };
   home.pointerCursor = {
     gtk.enable = true;
