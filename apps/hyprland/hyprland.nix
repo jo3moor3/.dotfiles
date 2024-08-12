@@ -53,6 +53,13 @@
       monitor=,preferred,auto,auto
       monitor=DP-3,1920x1080@143.99,0x0,1
 
+      workspace=1,monitor:DP-3
+      workspace=2,monitor:DP-3
+      workspace=3,monitor:DP-3
+      workspace=4,monitor:HDMI-A-1
+      workspace=5,monitor:HDMI-A-1
+      workspace=6,monitor:HDMI-A-1
+
       # See https://wiki.hyprland.org/Configuring/Keywords/ for more
 
       # Source a file (multi-file configs)
@@ -64,7 +71,8 @@
       $menu = rofi -show combi
 
       # Some default env vars.
-      #env = XCURSOR_SIZE,24
+      #env = XCURSOR_SIZE,28
+      env = HYPRCURSOR_SIZE,28
       env = WLR_NO_HARDWARE_CURSORS,1
 
       exec-once = systemctl --user import-environment PATH
@@ -145,7 +153,7 @@
 
       master {
           # See https://wiki.hyprland.org/Configuring/Master-Layout/ for more
-          new_is_master = true
+          #new_is_master = true
       }
       cursor {
           #enable_hyprcursor = 1

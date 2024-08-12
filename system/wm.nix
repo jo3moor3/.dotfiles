@@ -19,6 +19,7 @@
     ### X11 ###
     #qtile
     xorg.libX11
+    xorg.xhost
     xclip
     feh
     libnotify

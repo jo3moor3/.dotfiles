@@ -221,6 +221,7 @@
             "3" = [ ];
             "4" = [ ];
             "5" = [ ];
+            "6" = [ ];
           };
           warp-on-scroll = false;
           format = "{icon}";

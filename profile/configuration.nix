@@ -20,6 +20,11 @@
 
   Nvidia.enable = true;
 
+  hardware.opentabletdriver = {
+    enable = true;
+    daemon.enable = true;
+  };
+
   ### USER ACCOUNT ###
   users.users.jomor = {
     isNormalUser = true;
@@ -32,6 +37,9 @@
     allowUnfree = true; # Allow unfree packages
     cudaSupport = true;
   };
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot = true;
+  services.blueman.enable = true;
   environment.systemPackages = with pkgs; [
     ### PRETTIER NIXPKGS ###
     nh # nix helper
@@ -57,7 +65,7 @@
   ];
 
   ### DYNAMICALLY LINKED EXECUTABLES ###
-  programs.nix-ld = {
+  programs.nix-ld.dev = {
     enable = true;
     libraries = with pkgs; [
       curl
@@ -80,6 +88,10 @@
     zsh.enable = true;
     dconf.enable = true;
     mtr.enable = true;
+    appimage = {
+      enable = true;
+      binfmt = true;
+    };
   };
   system.stateVersion = "23.11";
   nix.settings.experimental-features = [ "nix-command" "flakes" ];

@@ -6,6 +6,7 @@
     ./security.nix
     ./Nvidia.nix
     ./audio.nix
+    ./game.nix
     ./disk.nix
     ./sleep.nix
     ./font.nix

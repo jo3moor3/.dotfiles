@@ -44,7 +44,7 @@
     wayland
     webcord
     spotify
-    steam
+    #steam
     ### SCREEN SHOT ###
     hyprshot
     grim
@@ -55,6 +55,8 @@
     obs-studio
     obs-cli
     kooha
+    okular
+    pdfarranger
     glslviewer # shader editor/viewer
     gwenview # image viewer
     gimp # image editor
