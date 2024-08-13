@@ -219,6 +219,7 @@
       bind = $mainMod, g, exec, hyprpicker --autocopy
       bind = $mainMod, c, exec, rofi -modi clipboard:~/.dotfiles/bin/cliphist-rofi-img -show clipboard -show-icons
       bind = SUPER_SHIFT, v, exec, /home/jomor/.dotfiles/bin/vm.sh
+      bind = SUPER_SHIFT, w, exec, /home/jomor/.dotfiles/bin/monitorlock.sh
 
       # FILES
       bind = SUPER_SHIFT, F, exec, $fileManager
