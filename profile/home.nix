@@ -60,6 +60,7 @@
     glslviewer # shader editor/viewer
     gwenview # image viewer
     gimp # image editor
+    krita
     inkscape # vector editor
     mpv # video player
     libsForQt5.kdenlive # video editor

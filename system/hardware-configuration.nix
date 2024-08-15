@@ -34,6 +34,7 @@
   fileSystems."/boot" = {
     device = "/dev/disk/by-uuid/85E0-F22E";
     fsType = "vfat";
+    options = [ "umask=0077" "defaults" ];
   };
 
   fileSystems."/run/media/jomor/vault" = {

@@ -94,6 +94,7 @@
           }
 
           sensitivity = 0 # -1.0 to 1.0, 0 means no modification.
+
       }
 
       general {
@@ -214,12 +215,16 @@
       bind = $mainMod, E, exec,emacsclient -c -a emacs
       bind = SUPER_SHIFT, E, exec,/home/jomor/.nix-profile/bin/emacs --daemon
 
-      # Utilities
+      # UTILITIES
+      ##pics
       bind = $mainMod, s, exec, hyprshot -m region
       bind = $mainMod, g, exec, hyprpicker --autocopy
       bind = $mainMod, c, exec, rofi -modi clipboard:~/.dotfiles/bin/cliphist-rofi-img -show clipboard -show-icons
+      ##VM
       bind = SUPER_SHIFT, v, exec, /home/jomor/.dotfiles/bin/vm.sh
+      ##tablet
       bind = SUPER_SHIFT, w, exec, /home/jomor/.dotfiles/bin/monitorlock.sh
+      bind = SUPER_SHIFT, t, exec, /home/jomor/.dotfiles/bin/otd.sh
 
       # FILES
       bind = SUPER_SHIFT, F, exec, $fileManager

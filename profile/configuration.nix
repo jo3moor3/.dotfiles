@@ -25,6 +25,8 @@
     daemon.enable = true;
   };
 
+  #services.xserver.digimend.enable = true;
+
   ### USER ACCOUNT ###
   users.users.jomor = {
     isNormalUser = true;
@@ -41,6 +43,8 @@
   hardware.bluetooth.powerOnBoot = true;
   services.blueman.enable = true;
   environment.systemPackages = with pkgs; [
+    libwacom
+    evtest # input event debugging
     ### PRETTIER NIXPKGS ###
     nh # nix helper
     nix-output-monitor # downlaod visualizer

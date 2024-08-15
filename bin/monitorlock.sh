@@ -8,7 +8,7 @@ if [[ -f ${state} ]]; then
 fi
 
 if [[ ${booleanvalue} == "true" ]]; then
-     wlr-randr --output HDMI-A-1 --pos 2560,0
+     wlr-randr --output HDMI-A-1 --pos 0,0
      echo "false" > ${state}
 else
      wlr-randr --output HDMI-A-1 --pos 2000,2000

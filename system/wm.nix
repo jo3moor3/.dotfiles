@@ -27,7 +27,7 @@
     ### WAYLAND ###
     wayland
     waydroid
-    wlroots_0_16
+    #wlroots_0_16
     #wl-clipboard
     hyprland-protocols
     qt6.qtwayland
