@@ -59,6 +59,7 @@
     libva-utils
     #epoll-shim
     #libva
+    python313
     coreutils # GNU utilities
     wget # file and recursive website downlaoder
     ruby # GPL needed for hey script
