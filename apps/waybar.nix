@@ -28,11 +28,13 @@
       #custom-left-arrow-dark {
       	color: #282A36;
         background: rgba(68, 71, 90, 1);
+        font-family: FontAwesome6Free;
       }
       #custom-right-arrow-light,
       #custom-left-arrow-light {
         color: rgba(68, 71, 90, 1);
       	background: #282A36;
+        font-family: FontAwesome6Free;
       }
 
       #custom-nightlight {

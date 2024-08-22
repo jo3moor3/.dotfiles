@@ -20,6 +20,11 @@
 
   Nvidia.enable = true;
 
+  systemd.user.services.emacs = {
+    after = [ "graphical-session-pre.target" ];
+    partOf = [ "graphical-session.target" ];
+  };
+
   hardware.opentabletdriver = {
     enable = true;
     daemon.enable = true;
