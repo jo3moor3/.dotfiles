@@ -1,7 +1,9 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, pkgs-stable, ... }:
 
 {
   environment.systemPackages = with pkgs; [
+    pureref
+    steam-run
     ### DCC ###
     blender # the unstoppable foss force in 3D graphics
     libdecor

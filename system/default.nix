@@ -14,5 +14,6 @@
     ./wm.nix
     ./vm.nix
     ./3D.nix
+    ./stable.nix
   ];
 }

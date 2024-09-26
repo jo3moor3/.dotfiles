@@ -10,12 +10,20 @@
   };
 
   environment.systemPackages = with pkgs; [
+    r2modman
     heroic
+    lutris
     gogdl
     mangohud
     protonup
-    wine-wayland
+    #wine-wayland
     wine
+    wine64
+    wine64Packages.wayland
+    winetricks
+    #server
+    #xvfb-run
+    steamPackages.steamcmd
   ];
 
   environment.sessionVariables = {

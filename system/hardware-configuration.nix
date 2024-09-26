@@ -42,11 +42,11 @@
     fsType = "ext4";
   };
 
-  fileSystems."/run/media/jomor/fastbub" = {
-    device = "/dev/disk/by-uuid/c7b734cc-2002-4dcd-8bb5-2a4198419e7e";
-    fsType = "ext4";
-    #options = [ "rw" "uid=1000" ];
-  };
+  # fileSystems."/run/media/jomor/fastbub" = {
+  #   device = "/dev/disk/by-uuid/c7b734cc-2002-4dcd-8bb5-2a4198419e7e";
+  #   fsType = "ext4";
+  #   #options = [ "rw" "uid=1000" ];
+  # };
 
   # fileSystems."/persistent" =
   #   { device = "/dev/root_vg/root";

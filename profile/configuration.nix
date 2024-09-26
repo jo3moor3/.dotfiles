@@ -51,6 +51,9 @@
   services.blueman.enable = true;
 
   environment.systemPackages = with pkgs; [
+    qbittorrent-enhanced
+    zoom-us
+    teams-for-linux
     libwacom
     evtest # input event debugging
     ### PRETTIER NIXPKGS ###
@@ -88,6 +91,7 @@
       libva
       xorg.libxcb
       libexecinfo
+      steamPackages.steamcmd
       # ...
     ];
   };

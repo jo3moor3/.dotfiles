@@ -192,6 +192,9 @@
        #windowrule = maxsize 1000 1000, ^(kitty)$
        #windowrule = nomaximizerequest, ^(blender)$
 
+       windowrule = float, ^(PureRef)$
+       windowrule = minsize 500 500, ^(PureRef)$
+
        #windowrulev2 = float,class:^(kitty)$
       # See https://wiki.hyprland.org/Configuring/Window-Rules/ for more
        #windowrulev2 = suppressevent maximize, class:.* # You'll probably like this.

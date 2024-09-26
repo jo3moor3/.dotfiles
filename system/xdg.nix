@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, pkgs-stable, ... }:
 
 {
 
@@ -7,9 +7,9 @@
     wlr.enable = true;
     config.common.default = [ "*" ];
     xdgOpenUsePortal = true;
-    extraPortals = with pkgs; [
-      xdg-desktop-portal-gtk
-      xdg-desktop-portal-hyprland
+    extraPortals = [
+      pkgs.xdg-desktop-portal-gtk
+      # pkgs-stable.xdg-desktop-portal-hyprland
     ];
   };
 

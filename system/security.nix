@@ -14,7 +14,8 @@
     # TPM2TOOLS_TCTI and TPM2_PKCS11_TCTI env variables
     tctiEnvironment.enable = true;
   };
-
+  ## ANTI-VIRUS ###
+  environment.systemPackages = with pkgs; [ clamav clamtk ];
   ### SECURE BOOT ###
   # environment.systemPackages =
   #   [ pkgs.sbctl ]; # for debugging and troubleshooting secureboot
