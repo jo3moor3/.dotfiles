@@ -19,6 +19,7 @@
   i18n.defaultLocale = "en_CA.UTF-8";
 
   Nvidia.enable = true;
+  Bluetooth.enable = true;
 
   systemd.user.services.emacs = {
     after = [ "graphical-session-pre.target" ];
@@ -46,14 +47,9 @@
   };
 
   ## BLUETOOTH ##
-  hardware.bluetooth.enable = true;
-  hardware.bluetooth.powerOnBoot = true;
-  services.blueman.enable = true;
 
   environment.systemPackages = with pkgs; [
     qbittorrent-enhanced
-    zoom-us
-    teams-for-linux
     libwacom
     evtest # input event debugging
     ### PRETTIER NIXPKGS ###
@@ -69,7 +65,6 @@
     xdg-utils
     libva-utils
     #epoll-shim
-    #libva
     python313
     coreutils # GNU utilities
     wget # file and recursive website downlaoder
@@ -91,7 +86,7 @@
       libva
       xorg.libxcb
       libexecinfo
-      steamPackages.steamcmd
+      #steamPackages.steamcmd
       # ...
     ];
   };

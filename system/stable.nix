@@ -1,5 +1,5 @@
 { config, lib, pkgs-stable, ... }:
 
 {
-  environment.systemPackages = with pkgs-stable; [ pureref ];
+  #environment.systemPackages = [ pkgs-stable.vim ];
 }

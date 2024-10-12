@@ -15,5 +15,6 @@
     ./vm.nix
     ./3D.nix
     ./stable.nix
+    ./school.nix
   ];
 }

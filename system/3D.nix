@@ -3,6 +3,7 @@
 {
   environment.systemPackages = with pkgs; [
     pureref
+    #{ sha256 = "0iR1cP2sZvWWqKwRAwq6L/bmIBSYHKrlI8u8V2hANfM="; }
     steam-run
     ### DCC ###
     blender # the unstoppable foss force in 3D graphics

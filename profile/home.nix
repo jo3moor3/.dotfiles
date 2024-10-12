@@ -41,7 +41,6 @@
     firefox # slightly better than other mainstream alternatives
     #discord # modern gamer skype
     #webcord-vencord
-    wayland
     webcord
     spotify
     #steam
