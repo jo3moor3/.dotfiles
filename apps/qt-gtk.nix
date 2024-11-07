@@ -5,7 +5,7 @@
     dracula-theme
     dracula-icon-theme
     #nerdfonts
-    qt5ct
+    libsForQt5.qt5ct
     #lxappearance
     nwg-look
     #phinger-cursors

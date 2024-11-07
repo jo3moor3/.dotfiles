@@ -15,6 +15,7 @@
     ./vm.nix
     ./3D.nix
     ./stable.nix
+    ./bluetooth.nix
     ./school.nix
   ];
 }

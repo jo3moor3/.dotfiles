@@ -3,6 +3,10 @@
 {
   programs.waybar = {
     enable = true;
+    # systemd = {
+    #   enable = true;
+    #   target = "hyprland-session.target";
+    # };
     package = pkgs.waybar.overrideAttrs (oa: {
       mesonFlags = (oa.mesonFlags or [ ]) ++ [ "-Dexperimental=true" ];
       patches = (oa.patches or [ ]) ++ [

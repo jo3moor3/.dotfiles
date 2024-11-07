@@ -23,7 +23,7 @@
     winetricks
     #server
     #xvfb-run
-    steamPackages.steamcmd
+    steamcmd
   ];
 
   environment.sessionVariables = {
