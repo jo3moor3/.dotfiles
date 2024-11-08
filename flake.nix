@@ -10,6 +10,8 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
+    blender-bin.url = "github:edolstra/nix-warez?dir=blender";
+    blender-bin.inputs.nixpkgs.follows = "nixpkgs";
     ### Allow persistance for when I nuke my computer on reboot ###
     # impermanence.url = "github:nix-community/impermanence";
     # impermanence.inputs.nixpkgs.follows = "nixpkgs";
@@ -46,7 +48,7 @@
 
   outputs =
     ## when on the impermanence grind, add it back here
-    { self, nixpkgs, nixpkgs-stable, home-manager, ... }@inputs:
+    { self, nixpkgs, nixpkgs-stable, home-manager, blender-bin, ... }@inputs:
     let
       #inputs = self.inputs;
       lib = nixpkgs.lib;
@@ -66,6 +68,9 @@
             # inputs.lanzaboote.nixosModules.lanzaboote
             #inputs.impermanence.nixosModules.impermanence
             #inputs.stylix.nixosModules.stylix
+            ({ config, pkgs, ... }: {
+              nixpkgs.overlays = [ blender-bin.overlays.default ];
+            })
           ];
         };
       };

@@ -43,7 +43,7 @@
   ### CORE PACKAGES ###
   nixpkgs.config = {
     allowUnfree = true; # Allow unfree packages
-    cudaSupport = true;
+    #cudaSupport = true;
   };
 
   ## BLUETOOTH ##
