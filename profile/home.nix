@@ -41,6 +41,9 @@
     firefox # slightly better than other mainstream alternatives
     #discord # modern gamer skype
     #webcord-vencord
+    pkgs-stable.figma-agent
+    figma-linux
+    #figma-agent
     webcord
     spotify
     #steam
@@ -54,10 +57,10 @@
     obs-studio
     obs-cli
     kooha
-    okular
+    kdePackages.okular
     pdfarranger
     glslviewer # shader editor/viewer
-    gwenview # image viewer
+    kdePackages.gwenview # image viewer
     gimp # image editor
     krita
     inkscape # vector editor

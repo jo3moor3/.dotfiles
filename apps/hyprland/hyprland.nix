@@ -12,9 +12,9 @@
     QT_AUTO_SCREEN_SCALE_FACTOR = "1";
     #QT_QPA_PLATFORMTHEME = "qt5ct"; # change to qt6ct if you have that
     #XDG
-    XDG_SESSION_TYPE = "wayland";
+    #XDG_SESSION_TYPE = "wayland";
     #GTK
-    GDK_BACKEND = "wayland";
+    #GDK_BACKEND = "wayland,x11";
     #NVIDIA
     __GLX_VENDOR_LIBRARY_NAME = "nvidia";
     GBM_BACKEND = "nvidia-drm";
@@ -42,7 +42,7 @@
       exec-once = hyprshade auto
 
       # STARTUP ESSENTIALS
-      exec-once = ${pkgs.polkit-kde-agent}/libexec/polkit-kde-authentication-agent-1
+      exec-once = ${pkgs.kdePackages.polkit-kde-agent-1}/libexec/polkit-kde-authentication-agent-1
       exec-once = dbus-update-activation-environment --systemd HYPRLAND_INSTANCE_SIGNATURE
 
       # STARTUP CLIPBOARD
@@ -53,9 +53,9 @@
       monitor=,preferred,auto,auto
       monitor=DP-3,1920x1080@143.99,0x0,1
 
-      workspace=1,monitor:DP-3
-      workspace=2,monitor:DP-3
-      workspace=3,monitor:DP-3
+      workspace=1,monitor:DP-2
+      workspace=2,monitor:DP-2
+      workspace=3,monitor:DP-2
       workspace=4,monitor:HDMI-A-1
       workspace=5,monitor:HDMI-A-1
       workspace=6,monitor:HDMI-A-1
@@ -74,6 +74,10 @@
       #env = XCURSOR_SIZE,28
       env = HYPRCURSOR_SIZE,28
       env = WLR_NO_HARDWARE_CURSORS,1
+      env = XDG_SESSION_TYPE,wayland
+      env = XDG_SESSION_DESKTOP,Hyprland
+      env = XDG_DESKTOP_CURRENT,Hyprland
+      env = GDK_BACKEND,wayland,x11,*
 
       exec-once = systemctl --user import-environment PATH
 
@@ -124,10 +128,6 @@
               #special = true
           }
 
-          drop_shadow = yes
-          shadow_range = 4
-          shadow_render_power = 3
-          col.shadow = rgba(1a1a1aee)
       }
 
       animations {
@@ -175,7 +175,7 @@
           #force_default_wallpaper = -1 # Set to 0 or 1 to disable the anime mascot wallpapers
           #initial_workspace_tracking = 0
           focus_on_activate = true
-          #middle_click_paste = false
+          middle_click_paste = false
           initial_workspace_tracking = 0
           disable_hyprland_logo = true
           disable_splash_rendering = true
@@ -192,8 +192,8 @@
        #windowrule = maxsize 1000 1000, ^(kitty)$
        #windowrule = nomaximizerequest, ^(blender)$
 
-       windowrule = float, ^(PureRef)$
-       windowrule = minsize 500 500, ^(PureRef)$
+       #windowrule = float, ^(PureRef)$
+       #windowrule = minsize 500 500, ^(PureRef)$
 
        #windowrulev2 = float,class:^(kitty)$
       # See https://wiki.hyprland.org/Configuring/Window-Rules/ for more

@@ -19,7 +19,7 @@
   i18n.defaultLocale = "en_CA.UTF-8";
 
   Nvidia.enable = true;
-  Bluetooth.enable = true;
+  Bluetooth.enable = false;
 
   systemd.user.services.emacs = {
     after = [ "graphical-session-pre.target" ];
@@ -49,6 +49,9 @@
   ## BLUETOOTH ##
 
   environment.systemPackages = with pkgs; [
+    lm_sensors
+    dmidecode
+    vscode-fhs
     qbittorrent-enhanced
     libwacom
     evtest # input event debugging
@@ -57,18 +60,19 @@
     nix-output-monitor # downlaod visualizer
     nvd # nixOS diff tool
     #vimHugeX # vim with x support (+clipboard)
-    vim
-    xmousepasteblock # disable middle mouse paste
+    vim # for when emacs fails
+    #xmousepasteblock # disable middle mouse paste on x
     #polkit_gnome # authenticatoin agent
-    polkit-kde-agent
+    kdePackages.polkit-kde-agent-1 # KDE > Gnome
     util-linux # system utilities
     xdg-utils
     libva-utils
+    samba
     #epoll-shim
     python313
     coreutils # GNU utilities
     wget # file and recursive website downlaoder
-    ruby # GPL needed for hey script
+    #ruby # GPL needed for hey script
     go
     gnumake # build tool
     cmake # build tool
@@ -90,6 +94,13 @@
       # ...
     ];
   };
+
+  nixpkgs.config.permittedInsecurePackages = [
+    "aspnetcore-runtime-6.0.36"
+    "aspnetcore-runtime-wrapped-6.0.36"
+    "dotnet-sdk-6.0.428"
+    "dotnet-sdk-wrapped-6.0.428"
+  ];
 
   ### global enivironment variables ###
 

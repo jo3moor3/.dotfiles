@@ -11,9 +11,16 @@ let
     cd = "z";
     cdi = "zi";
     grep = "rg";
-    hey = "~/.dotfiles/bin/hey.sh";
+    ### NIX PAXKAGE CONTROL ###
+    #hey = "~/.dotfiles/bin/hey.sh";
+    hey = "nh ";
+    re = "os switch ~/.dotfiles";
+    ho = "home switch ~/.dotfiles";
+    u = "os switch --update ~/.dotfiles --ask";
+    ### COMPOSITOR LAUNCHING ###
     w = "dbus-run-session Hyprland";
     x = "startx";
+    part = "sudo -E gparted";
   };
 in {
 
@@ -42,6 +49,7 @@ in {
     git
     bind
     unzip
+    zip
     bottom
     ripgrep
     fd

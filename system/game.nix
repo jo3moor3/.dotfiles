@@ -10,12 +10,17 @@
   };
 
   environment.systemPackages = with pkgs; [
-    r2modman
-    heroic
+    r2modman # for unity mods (BepInEX)
+    ### GOG ###
+    #heroic
+    #gogdl
+    ### GENERAL ###
     lutris
-    gogdl
-    mangohud
+    mangohud # if you want stats in game
     protonup
+    steamcmd
+    steam-run # to run those that are allergic to linux
+    ### WINE ###
     #wine-wayland
     wine
     wine64
@@ -23,7 +28,6 @@
     winetricks
     #server
     #xvfb-run
-    steamcmd
   ];
 
   environment.sessionVariables = {

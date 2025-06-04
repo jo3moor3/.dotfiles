@@ -1,21 +1,22 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, pkgs-stable, ... }:
 
 {
   fonts.fontDir.enable = true;
 
-  #environment.systemPackages = with pkgs; [ font-manager ];
+  environment.systemPackages = with pkgs; [ font-manager ];
 
   fonts.packages = with pkgs; [
     ## Rofi  font ##
     cascadia-code
-
+    #corefonts
     ## Qtile+Kitty ##
-    (nerdfonts.override {
-      fonts = [
-        "SourceCodePro" # Kitty/Ranger
-        "NerdFontsSymbolsOnly" # Qtile
-      ];
-    })
+    nerd-fonts.sauce-code-pro # Kitty/Ranger
+    nerd-fonts.symbols-only
+    # (nerdfonts.override {
+    #   fonts = [
+    #     "NerdFontsSymbolsOnly" # Qtile
+    #   ];
+    # })
 
     ## Emacs fonts ##
     jetbrains-mono

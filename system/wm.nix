@@ -1,6 +1,7 @@
 { config, lib, pkgs, inputs, ... }:
 
 {
+  ## X11 ###
   services.xserver = {
     enable = true;
     xkb = {
@@ -8,10 +9,20 @@
       variant = "";
     };
     videoDrivers = [ "nvidia" ];
+    displayManager.startx.enable = true;
     windowManager.qtile = { enable = true; };
+    exportConfiguration = true;
+    autorun = false;
+    xrandrHeads = [
+      "HDMI-A-1"
+      {
+        output = "DP-3";
+        primary = true;
+      }
+    ];
   };
-  services.xserver.displayManager.startx.enable = true;
-
+  services.displayManager.enable = true;
+  ## TTY ###
   services.getty.extraArgs = [ "--skip-login" ];
   services.getty.loginOptions = "-p -- jomor";
 

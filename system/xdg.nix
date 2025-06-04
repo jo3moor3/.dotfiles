@@ -7,10 +7,8 @@
     wlr.enable = true;
     config.common.default = [ "*" ];
     xdgOpenUsePortal = true;
-    extraPortals = [
-      pkgs.xdg-desktop-portal-gtk
-      # pkgs-stable.xdg-desktop-portal-hyprland
-    ];
+    extraPortals =
+      [ pkgs.xdg-desktop-portal-gtk pkgs.xdg-desktop-portal-hyprland ];
   };
 
   environment = {
